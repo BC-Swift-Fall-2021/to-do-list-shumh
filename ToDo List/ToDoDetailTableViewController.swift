@@ -7,6 +7,15 @@
 
 import UIKit
 
+private let dateFormatter: DateFormatter = {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateStyle = .short
+    dateFormatter.timeStyle = .short
+    return dateFormatter
+}()
+
+
+
 class ToDoDetailTableViewController: UITableViewController {
 
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
@@ -18,11 +27,16 @@ class ToDoDetailTableViewController: UITableViewController {
     
     var toDoItem: ToDoItem!
     
+    let datePickerIndexPath = IndexPath(row: 1, section: 1)
+    let notesTextViewIndexPath = IndexPath(row: 0, section: 2)
+    let notesRowHeight: CGFloat = 200
+    let defaultRowHeight: CGFloat = 200
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if toDoItem == nil {
-            toDoItem = ToDoItem(name: "", date: Date(), notes: "", reminderSet: false)
+            toDoItem = ToDoItem(name: "", date: Date().addingTimeInterval(24*60*60), notes: "", reminderSet: false)
         }
         updateUserInterface()
     }
@@ -33,6 +47,7 @@ class ToDoDetailTableViewController: UITableViewController {
         noteView.text = toDoItem.notes
         reminderSwitch.isOn = toDoItem.reminderSet
         dateLabel.textColor = reminderSwitch.isOn ? .black : .gray
+        dateLabel.text = dateFormatter.string(from: toDoItem.date)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -53,17 +68,22 @@ class ToDoDetailTableViewController: UITableViewController {
         tableView.beginUpdates()
         tableView.endUpdates()
     }
+    
+    @IBAction func datePickerChanged(_ sender: UIDatePicker) {
+        dateLabel.text = dateFormatter.string(from: sender.date)
+        
+    }
 }
 
 extension ToDoDetailTableViewController{
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath {
-        case IndexPath(row: 1, section: 1):
+        case datePickerIndexPath:
             return reminderSwitch.isOn ? datePicker.frame.height : 0
-        case IndexPath(row: 0, section: 2):
-            return 200
+        case notesTextViewIndexPath:
+            return notesRowHeight
         default:
-            return 44
+            return defaultRowHeight
         }
         
     }
