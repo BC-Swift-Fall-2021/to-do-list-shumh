@@ -20,14 +20,35 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="F2u-ZZ-Zgy">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="F2u-ZZ-Zgy" customClass="ListTableViewCell" customModule="ToDo_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F2u-ZZ-Zgy" id="8gK-2d-iVg">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0r-gI-cd5">
+                                                    <rect key="frame" x="20" y="10" width="24" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="rectangle" catalog="system"/>
+                                                    <state key="selected" image="checkmark.rectangle" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="checkToggled:" destination="F2u-ZZ-Zgy" eventType="touchUpInside" id="uDY-I2-sbF"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7t-sk-fkI">
+                                                    <rect key="frame" x="52" y="10" width="342" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="checkBoxButton" destination="A0r-gI-cd5" id="BVx-9v-qKf"/>
+                                            <outlet property="nameLabel" destination="u7t-sk-fkI" id="G9K-eo-r4w"/>
                                             <segue destination="Brb-5Z-Hwy" kind="show" identifier="ShowDetail" id="E4e-yI-z2x"/>
                                         </connections>
                                     </tableViewCell>
@@ -67,7 +88,7 @@
         <!--To Do Detail Table View Controller-->
         <scene sceneID="0eY-tA-h5Q">
             <objects>
-                <tableViewController id="Brb-5Z-Hwy" customClass="ToDoDetailTableViewController" customModule="ToDo_List" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="Brb-5Z-Hwy" customClass="ToDoDetailTableViewController" customModule="ToDo_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="dEM-w9-MCU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,6 +139,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.25"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="200" id="kM2-qb-y9t">
                                         <rect key="frame" x="0.0" y="187" width="414" height="200"/>
@@ -126,9 +148,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="iHa-eX-gfk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="iHa-eX-gfk">
+                                                    <rect key="frame" x="31" y="13" width="352" height="174"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                     <connections>
                                                         <action selector="datePickerChanged:" destination="Brb-5Z-Hwy" eventType="valueChanged" id="XIr-DW-MVu"/>
                                                     </connections>
@@ -235,6 +257,8 @@
         <segue reference="E4e-yI-z2x"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="checkmark.rectangle" catalog="system" width="128" height="93"/>
+        <image name="rectangle" catalog="system" width="128" height="93"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
