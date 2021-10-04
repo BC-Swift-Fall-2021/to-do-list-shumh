@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--To Do List View Controller-->
+        <!--To Do List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ToDoListViewController" customModule="ToDo_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -64,7 +64,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RnC-SF-fEp" secondAttribute="bottom" id="wmt-dR-gaV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Mlk-nv-qgy">
+                    <navigationItem key="navigationItem" title="To Do List" largeTitleDisplayMode="always" id="Mlk-nv-qgy">
                         <barButtonItem key="leftBarButtonItem" title="Edit" id="br1-bj-QBl">
                             <connections>
                                 <action selector="editButtonPressed:" destination="BYZ-38-t0r" id="zy9-eR-hHR"/>
@@ -103,7 +103,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m5K-v7-w7H">
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m5K-v7-w7H">
                                                     <rect key="frame" x="20" y="5" width="374" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -192,7 +192,7 @@
                             <outlet property="delegate" destination="Brb-5Z-Hwy" id="XHm-mh-7ND"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="uwh-f2-Ssg">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="uwh-f2-Ssg">
                         <barButtonItem key="leftBarButtonItem" title="Item" systemItem="cancel" id="WRn-hY-a7G">
                             <connections>
                                 <action selector="cancelButtonPressed:" destination="Brb-5Z-Hwy" id="YUv-TA-9XY"/>
@@ -223,8 +223,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SiO-pz-B3s" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JTy-dk-cry">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="JTy-dk-cry">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
