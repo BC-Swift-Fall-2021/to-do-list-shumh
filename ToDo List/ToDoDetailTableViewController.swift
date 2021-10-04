@@ -100,7 +100,7 @@ extension ToDoDetailTableViewController{
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath {
         case datePickerIndexPath:
-            return reminderSwitch.isOn ? datePicker.frame.height : 0
+            return reminderSwitch.isOn ? datePicker.frame.height : 1
         case notesTextViewIndexPath:
             return notesRowHeight
         default:

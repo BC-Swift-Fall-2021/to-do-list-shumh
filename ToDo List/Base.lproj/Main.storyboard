@@ -152,7 +152,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="iHa-eX-gfk">
-                                                    <rect key="frame" x="31" y="13" width="352" height="174"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                     <connections>
                                                         <action selector="datePickerChanged:" destination="Brb-5Z-Hwy" eventType="valueChanged" id="XIr-DW-MVu"/>
